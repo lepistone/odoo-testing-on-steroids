@@ -2,9 +2,7 @@
 
 I test automatici permettono di limitare i bachi e le regressioni. In realtà,
 aiutano anche la comunicazione con colleghi e clienti, la concentrazione, il
-design del codice.  Inoltre i test di accettazione possono armonizzare i
-rapporti tra clienti, esperti del settore e programmatori, dallo scambio dei
-requisiti alle dispute sui contratti.
+design del codice, le consegne.
 
 Presenterò con semplici esempi i sistemi di test che ho usato con odoo, e
 alcune idee su come rendere i nostri test più semplici, leggibili, efficaci e
@@ -13,5 +11,5 @@ facili da mantenere.
 ## audience
 
 Il talk è pensato sia per chi non si è ancora avvicinato ai test automatici,
-sia per chi ne scrive, e come me si chiede spesso come renderli più efficaci.
-Gli esempi saranno semplici.
+sia per chi ne scrive, ma vorrebbe renderli più efficaci.  Gli esempi saranno
+comprensibili per programmatori di tutti i livelli.
