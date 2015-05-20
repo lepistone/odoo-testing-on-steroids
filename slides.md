@@ -15,6 +15,7 @@ name: agenda
 <!--
 Todo:
 install_in_connector
+start server with option load=web,connector and the env variable
 job delay
 job delay with args
 transactional properties (rollback, commit)
