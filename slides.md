@@ -17,6 +17,7 @@ Todo:
 install_in_connector
 job delay
 job delay with args
+transactional properties (rollback, commit)
 automatically retry a job on an error
 job failure with traceback
 channels
