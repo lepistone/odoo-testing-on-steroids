@@ -14,6 +14,7 @@ name: agenda
 
 <!--
 Todo:
+install_in_connector
 job delay
 job delay with args
 automatically retry a job on an error
