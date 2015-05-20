@@ -12,6 +12,16 @@ name: agenda
 2. Deep-dive
 3. ...
 
+<!--
+Todo:
+job delay
+job delay with args
+automatically retry a job on an error
+job failure with traceback
+channels
+channels example (schema)
+-->
+
 ---
 
 # Introduction
