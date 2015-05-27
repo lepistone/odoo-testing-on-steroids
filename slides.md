@@ -1,16 +1,7 @@
 layout: false
 class: center, middle, inverse
 
-# Title
-
----
-name: agenda
-
-# Agenda
-
-1. Introduction
-2. Deep-dive
-3. ...
+# A Jobs Queue for processing tasks asynchronously
 
 <!--
 Todo:
@@ -18,6 +9,7 @@ install_in_connector
 start server with option load=web,connector and the env variable
 job delay
 job delay with args
+give an eta
 transactional properties (rollback, commit)
 automatically retry a job on an error
 job failure with traceback
@@ -26,8 +18,132 @@ channels example (schema)
 -->
 
 ---
+class: inverse
+# About us
 
-# Introduction
+## Guewen Baconnier
+* Developer @ Camptocamp
+* OCA committer, OCA Delegate
+* Connector Team leader
+* Twitter @guewenb
+
+## Leonardo Pistone
+* Developer @ Camptocamp
+* OCA committer, OCA Delegate
+* Twitter @lepistone
+
+---
+class: center, middle
+# Computers are slow!
+--
+
+# Humans want them to be fast!
+
+
+---
+class: center, middle, inverse
+
+# The problem
+
+---
+name: why-sequence
+background-image: url(sequence_jobs.svg)
+
+---
+class: center, middle
+
+![Loading...](loading1.png)
+
+---
+class: center, middle
+
+![Still loading...](loading2.png)
+
+---
+class: center, middle
+
+![Still loading... Please be patient.](loading3.png)
+
+---
+class: center, middle
+
+![Don't leave yet, it's still loading](loading4.png)
+
+---
+class: center, middle
+
+![You may not believe it, but the application is actually loading...](loading5.png)
+
+---
+class: center, middle
+
+![Take a minute to get a coffee, because it's loading...](loading6.png)
+
+---
+class: center, middle
+
+![Maybe you should consider reloading the application by pressing F5...](loading7.png)
+
+---
+class: center, middle, inverse
+
+# Better
+
+---
+name: why-sequence2
+background-image: url(sequence_jobs2.svg)
+
+---
+class: center, middle, inverse
+.connector-word-title[Connector]
+
+???
+
+How do we queue in Odoo then?
+Connector is an OCA addons.
+
+Used in many addons.
+Magento. Prestashop. Various connectors.
+But also some which are not connectors, addons that use only the jobs queue.
+Example: module to import large CSV files in jobs, chunk by chunk.
+
+Framework to build connectors.
+But not limited to connectors.
+
+---
+# Queue it!
+
+Dependency on .connector-word[connector]
+
+Install your addon in the connector:
+
+```python
+from openerp.addons.connector import connector
+connector.install_in_connector()
+```
+
+--
+Declare a job:
+
+```python
+from openerp.addons.connector.queue.job import job
+
+@job
+def a_heavy_task(session, model_name, record_id):
+    # do an heavy task on record_id of model_name
+```
+
+--
+Produce a job:
+
+```python
+session = ConnectorSession.from_env(self.env)
+a_heavy_task.delay(session, 'res.partner', 1)
+```
+
+
+???
+
 
 ---
 # Best Practices
