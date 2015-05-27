@@ -5,11 +5,15 @@ class: center, middle, inverse
 
 <!--
 Todo:
+Job patterns: 
+  Try or delay: try: call() except: call.delay(); 
+  Fanout: "batch" job that spawn other jobs
 install_in_connector
 start server with option load=web,connector and the env variable
 job delay
 job delay with args
 give an eta
+What happens when odoo crashes/stops
 transactional properties (rollback, commit)
 automatically retry a job on an error
 job failure with traceback
