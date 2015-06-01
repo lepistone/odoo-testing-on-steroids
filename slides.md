@@ -12,10 +12,8 @@ install_in_connector
 start server with option load=web,connector and the env variable
 job delay
 job delay with args
-give an eta
 What happens when odoo crashes/stops
 transactional properties (rollback, commit)
-automatically retry a job on an error
 job failure with traceback
 channels
 channels example (schema)
@@ -148,6 +146,59 @@ a_heavy_task.delay(session, 'res.partner', 1)
 
 ???
 
+---
+class: inverse, center, middle
+
+# Properties
+
+---
+
+# Priority
+
+```python
+a_task.delay(session, 1, priority=10)
+a_task.delay(session, 2, priority=100)
+```
+
+???
+add a schema?
+tell use cases (fanout jobs, import of trees, ...)
+
+---
+
+# ETA
+
+```python
+a_task.delay(session, 1, eta=60*60)
+a_task.delay(session, 2, eta=datetime.now() + timedelta(days=1))
+```
+
+???
+add a schema?
+
+---
+
+# Retries
+
+```python
+a_task.delay(session, 1, max_retries=1)
+```
+--
+# Invoke a retry
+
+
+```python
+try:
+    do_operation()
+except (socket.gaierror, socket.error, socket.timeout) as err:                                                                                              
+    raise RetryableError(                                                                                                                            
+        'A network error caused the failure of the job: '                                                                                                   
+        '%s' % err)
+```
+
+???
+
+RetryableError or subclass
 
 ---
 # Best Practices
@@ -190,16 +241,16 @@ Always check if it still exists.
 No:
 ```python
 @job
-def test2(session, record_id):
+def example(session, record_id):
     export(session.env['model'].browse(record_id))
 ```
 
 Yes:
 ```python
 @job
-def test2(session, record_id):
+def example(session, record_id):
     record = session.env['model'].browse(record_id)
-    if record.exists():
+*    if record.exists():
         export(record)
 ```
 
@@ -220,17 +271,17 @@ times.
 No:
 ```python
 @job
-def test2(session, record_id):
+def example(session, record_id):
     export(session.env['model'].browse(record_id))
 ```
 
 Yes:
 ```python
 @job
-def test2(session, record_id):
+def example(session, record_id):
     record = session.env['model'].browse(record_id)
-    if not record.exported:
-        export(session.env['model'].browse(record_id))
-```
+    if record.exists():
+*        if not record.exported:
+            export(session.env['model'].browse(record_id))
 
 ]
