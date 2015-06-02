@@ -10,14 +10,13 @@ Todo:
 GIF
 
 type fast
-http://giphy.com/gifs/toXKzaJP3WIgM
 
 banderas happy
 http://www.reactiongifs.com/r/abr.gif
--->
-
 fletcher facepalm
 http://i.giphy.com/kioZpjoUyj9EA.gif
+
+-->
 
 ---
 class: inverse
@@ -154,6 +153,16 @@ class: center, middle
 
 # ¯\\\_(ツ)\_/¯
 
+--
+
+![fast](gifs/type-fast.gif)
+
+---
+
+class: center, middle
+
+# ...really?
+
 ---
 ```
 2015-03-19 13:24:51,806 23693 INFO openerp_test openerp.addons.sale_exception_nostock.tests.test_dropshipping_skip_check: test_dropshipping_sale_can_always_be_delivered (openerp.addons.sale_exception_nostock.tests.test_dropshipping_skip_check.TestDropshippingSkipCheck)
@@ -196,49 +205,38 @@ class: center, middle
 2015-03-19 13:25:03,604 23693 INFO openerp_test openerp.service.common: successful login from 'admin' using database 'openerp_test'
 2015-03-19 13:25:03,605 23693 INFO openerp_test werkzeug: 127.0.0.1 - - [19/Mar/2015 13:25:03] "POST /xmlrpc/2/common HTTP/1.1" 200 -
 2015-03-19 13:25:03,606 23693 INFO openerp_test openerp.addons.base.tests.test_xmlrpc: test_xmlrpc_ir_model_search (openerp.addons.base.tests.test_xmlrpc.test_xmlrpc)
-2015-03-19 13:25:03,606 23693 INFO openerp_test openerp.addons.base.tests.test_xmlrpc: ` Try a search on the object service.
-2015-03-19 13:25:03,857 23693 INFO openerp_test werkzeug: 127.0.0.1 - - [19/Mar/2015 13:25:03] "POST /xmlrpc/2/object HTTP/1.1" 200 -
-2015-03-19 13:25:03,872 23693 INFO openerp_test werkzeug: 127.0.0.1 - - [19/Mar/2015 13:25:03] "POST /xmlrpc/2/object HTTP/1.1" 200 -
-2015-03-19 13:25:03,881 23693 INFO openerp_test openerp.addons.base.tests.test_xmlrpc: Ran 2 tests in 0.533s
-2015-03-19 13:25:03,881 23693 INFO openerp_test openerp.addons.base.tests.test_xmlrpc: OK
-2015-03-19 13:25:03,967 23693 INFO openerp_test openerp.modules.module: openerp.addons.report.tests.test_reports running tests.
-2015-03-19 13:25:03,967 23693 INFO openerp_test openerp.addons.report.tests.test_reports: test_reports (openerp.addons.report.tests.test_reports.TestReports)
-2015-03-19 13:25:04,004 23693 INFO openerp_test openerp.addons.report.tests.test_reports: testing report stock.report_inventory
-2015-03-19 13:25:04,275 23693 INFO openerp_test openerp.addons.report.tests.test_reports: testing report account.report_invoice
-2015-03-19 13:25:04,416 23693 INFO openerp_test openerp.addons.report.tests.test_reports: testing report stock.report_location_barcode
-2015-03-19 13:25:04,434 23693 INFO openerp_test openerp.addons.report.tests.test_reports: testing report stock.report_lot_barcode
-2015-03-19 13:25:04,453 23693 INFO openerp_test openerp.addons.report.tests.test_reports: testing report stock.report_package_barcode_small
-2015-03-19 13:25:04,454 23693 INFO openerp_test openerp.addons.report.tests.test_reports: no record found skipping report stock.report_package_barcode_small
-2015-03-19 13:25:04,467 23693 INFO openerp_test openerp.addons.report.tests.test_reports: testing report stock.report_package_barcode
-2015-03-19 13:25:04,467 23693 INFO openerp_test openerp.addons.report.tests.test_reports: no record found skipping report stock.report_package_barcode
-2015-03-19 13:25:04,479 23693 INFO openerp_test openerp.addons.report.tests.test_reports: testing report stock.report_picking
-2015-03-19 13:25:04,578 23693 INFO openerp_test openerp.addons.report.tests.test_reports: testing report sale.report_saleorder
-2015-03-19 13:25:04,681 23693 INFO openerp_test openerp.addons.report.tests.test_reports: Ran 1 test in 0.714s
-2015-03-19 13:25:04,681 23693 INFO openerp_test openerp.addons.report.tests.test_reports: OK
-2015-03-19 13:25:04,692 23693 INFO openerp_test openerp.modules.loading: All post-tested in 1.38s, 330 queries
-2015-03-19 13:25:04,693 23693 INFO openerp_test openerp.service.server: Initiating shutdown
-2015-03-19 13:25:04,693 23693 INFO openerp_test openerp.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
-----------
-Modules loaded message not found.
-----------
-FAIL Found 1 lines with errors
-FAIL Command exited with code 1
-Module test summary
-FAIL sale_validity,sale_quotation_number,sale_partner_order_policy,sale_owner_stock_sourcing,sale_exceptions,sale_exception_nostock,sale_cancel_reason,partner_prepayment
-+=======================================
-|  Tests summary:
-|---------------------------------------
-| test_server                 FAIL
-+=======================================
-The command "travis_run_tests" exited with 1.
-Done. Your build exited with 1.
 ```
 ---
 
 
-class: center, middle, inverse
+class: inverse
 
 # (╯°□°）╯︵ ┻━┻)
+
+---
+
+* output
+
+--
+
+* slowness
+
+--
+
+* dependencies
+
+--
+
+* brittleness
+
+--
+
+class: inverse
+
+# (╯°□°）╯︵ ┻━┻)
+
+
+![fail](gifs/fletcher-facepalm.gif)
 
 ---
 
@@ -335,3 +333,10 @@ OK
 - no irrelevant logging
 - rerun only failing tests
 - keep your old tests
+
+---
+class: center
+# OCA sponsors
+
+![OCA sponsors](all_sponsors.png)
+
