@@ -5,7 +5,19 @@ class: center, middle, inverse
 
 <!--
 Todo:
+
+
+GIF
+
+type fast
+http://giphy.com/gifs/toXKzaJP3WIgM
+
+banderas happy
+http://www.reactiongifs.com/r/abr.gif
 -->
+
+fletcher facepalm
+http://i.giphy.com/kioZpjoUyj9EA.gif
 
 ---
 class: inverse
