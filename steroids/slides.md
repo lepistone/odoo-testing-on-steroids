@@ -23,13 +23,17 @@ http://i.giphy.com/kioZpjoUyj9EA.gif
 -->
 
 ---
-class: inverse
 # About me
 
 ## Leonardo Pistone
 * Developer @ Camptocamp
 * OCA committer & delegate member
 * @lepistone
+
+.camptocamp-logo[
+![camptocamp](camptocamp.png )
+]
+
 
 ---
 class: center, middle
