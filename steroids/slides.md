@@ -3,6 +3,10 @@ class: center, middle, inverse
 
 # odoo testing on steroids
 
+## Leonardo Pistone
+
+## Camptocamp
+
 <!--
 Todo:
 
@@ -30,7 +34,7 @@ class: inverse
 ---
 class: center, middle
 
-# what I want
+# what I'd love
 
 ---
 
@@ -141,8 +145,8 @@ class: middle
 
 ```
 # nosetests
-.........
---------------------------
+....
+---------------------
 Ran 4 tests in 0.002s
 
 OK
@@ -208,12 +212,20 @@ class: center, middle
 ```
 ---
 
-
-class: inverse
+class: inverse, bigger
 
 # (╯°□°）╯︵ ┻━┻)
 
+--
+
+![fail](gifs/fletcher-facepalm.gif)
+
 ---
+class: bigger
+
+# Problems
+
+--
 
 * output
 
@@ -229,31 +241,8 @@ class: inverse
 
 * brittleness
 
---
-
-class: inverse
-
-# (╯°□°）╯︵ ┻━┻)
-
-
-![fail](gifs/fletcher-facepalm.gif)
-
 ---
-
-# unittest (isolated)
-
-```python
-class TestUnitCheck(TransactionCase):
-
-    def test_over_budget(self):
-        order = self.env['sale.order'].new({
-            'total_budget': 80.0,
-            'amount_total': 100.0,
-        })
-        self.assertTrue(order.over_budget())
-```
----
-# unittest (integration)
+# unittest
 
 ```python
 class TestItBlocks(TransactionCase):
@@ -300,6 +289,7 @@ class TestItBlocks(TransactionCase):
         ref('base.res_partner_3'),
     )
 ```
+
 ---
 # OERPScenario
 
@@ -311,7 +301,72 @@ Feature: Invoice workflow
     When I validate the invoice
     Then the state of the invoice is "open"
 ```
+--
+
+* need to write steps to implement phrases
+
+--
+
+* can abstract from implementation
+
+--
+
+* same test could be used for backend + browser
+
+--
+
+* readable by non-developers
+
 ---
+# new()
+
+```python
+class TestUnitCheck(TransactionCase):
+
+    def test_over_budget(self):
+        order = self.env['sale.order'].new({
+            'total_budget': 80.0,
+            'amount_total': 100.0,
+        })
+        self.assertTrue(order.over_budget())
+```
+
+--
+
+- required fields are not enforced
+
+--
+
+- not stored to the database
+
+--
+
+- otherwise pretty real
+
+---
+# mock
+
+```python
+product = Mock(
+    spec_set=self.env['product.product'],
+    qty_available=20,
+)
+```
+
+--
+
+- fake objects
+
+--
+
+- canned responses
+
+--
+
+- more magic
+
+---
+
 # anybox.buildout.odoo / nosetests
 
 --
@@ -330,8 +385,17 @@ OK
 --
 
 - no update
+
+--
+
 - no irrelevant logging
+
+--
+
 - rerun only failing tests
+
+--
+
 - keep your old tests
 
 ---
@@ -339,4 +403,3 @@ class: center
 # OCA sponsors
 
 ![OCA sponsors](all_sponsors.png)
-
