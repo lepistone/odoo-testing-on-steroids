@@ -153,13 +153,25 @@ OK
 ```
 ---
 
-class: center, middle
+class: center
 
-# ¯\\\_(ツ)\_/¯
+# expressive
 
 --
 
-![fast](gifs/type-fast.gif)
+# fast
+
+--
+
+# relevant output
+
+--
+
+# maintainable
+
+--
+
+# ¯\\\_(ツ)\_/¯
 
 ---
 
@@ -221,25 +233,26 @@ class: inverse, bigger
 ![fail](gifs/fletcher-facepalm.gif)
 
 ---
-class: bigger
+
+class: center
 
 # Problems
 
 --
 
-* output
+# output
 
 --
 
-* slowness
+# slowness
 
 --
 
-* dependencies
+# dependencies
 
 --
 
-* brittleness
+# brittleness
 
 ---
 # unittest
