@@ -7,18 +7,9 @@ class: center, middle, inverse
 
 ## Camptocamp
 
-<!--
-Todo:
+???
 
-
-GIF
-
-type fast
-
-banderas happy
-http://www.reactiongifs.com/r/abr.gif
-fletcher facepalm
-http://i.giphy.com/kioZpjoUyj9EA.gif
+# the title of this talk is
 
 -->
 
@@ -34,11 +25,20 @@ http://i.giphy.com/kioZpjoUyj9EA.gif
 ![camptocamp](camptocamp.png )
 ]
 
+???
+
+# spend time on oca
 
 ---
 class: center, middle
 
 # what I'd love
+
+???
+
+# not a introduction on how to test
+
+# for that, alexandre
 
 ---
 
@@ -72,7 +72,7 @@ def compute_tax(base, rate=0):
 .left-column[
 ```python
 def compute_tax(base, rate=0):
-    return 50
+    return base
 ```
 ]
 
@@ -145,16 +145,45 @@ def compute_tax(base, rate=0):
 ]
 
 ---
-class: middle
 
 ```
-# nosetests
+# python -m unittest discover
+
 ....
 ---------------------
 Ran 4 tests in 0.002s
 
 OK
+
+
+
 ```
+
+--
+
+```
+
+
+
+
+$ python -m unittest discover
+
+F.F.
+======================================================================
+FAIL: test_positive_rate_increases_amount (test_tax.TestTax)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tdd/test_tax.py", line 13, in test_positive_rate_increases_amount
+    self.assertEqual(compute_tax(100, 0.05), 105)
+AssertionError: 100 != 105
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+FAILED (failures=2)
+
+```
+
 ---
 
 class: center
@@ -267,13 +296,20 @@ class TestItBlocks(TransactionCase):
         self.order.order_line.budget_tot_price = 80.0
         self.order.order_line.price_unit = 100.0
 
-        result = self.order.action_button_confirm()
+        self.order.action_button_confirm()
 
         self.assertEqual('draft', self.order.state)
-        exceptions = self.wizard_model.browse(result['res_id']).exception_ids
-        self.assertEqual(2, len(exceptions))
-        self.assertIn("is over the total budget", exceptions[0].description)
-        self.assertIn("has not validated", exceptions[1].description)
+```
+
+???
+
+# simple
+
+--
+```python
+    def setUp(self):
+        super(TestItBlocks, self).setUp()
+        # boring stuff
 ```
 
 ---
@@ -378,10 +414,6 @@ product = Mock(
 
 - canned responses
 
---
-
-- more magic
-
 ---
 
 # anybox.buildout.odoo / nosetests
@@ -416,7 +448,39 @@ OK
 - keep your old tests
 
 ---
+
+# split decisions and dependencies
+
+--
+
+```python
+class Invoice:
+    def compute(amount, rate):   # put decisions here
+        return amount * (rate + 1)
+```
+
+--
+
+```python
+    def update_tax(self):        # put dependencies here
+        tax = Tax.search(self.partner.tax_conditions)
+        self.amount_with_tax = self.compute(
+            self.amount_untaxed,
+            tax.rate,
+        )
+```
+
+--
+
+## functional core, imperative shell (Gary Bernhardt)
+
+---
 class: center
+
+# thanks!
+
+--
+
 # OCA sponsors
 
 ![OCA sponsors](all_sponsors.png)
