@@ -103,7 +103,7 @@ def compute_tax(base, rate=0):
 .right-column[
 ```python
     def test_negative_rate(self):
-        assert compute_tax(100, 0.05) == 95
+        assert compute_tax(100, -0.05) == 95
 ```
 ]
 ---
